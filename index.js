@@ -20,7 +20,24 @@ client
   });
 
 app.get("/", (req, res) => {
-  res.send("Hello backend!");
+  res.send("Hello backend!")
+});
+
+app.get("/dictionary/topic_images", async (req, res, next) => {
+    try {
+        let databaseTopicImages = await client
+          .db("dictionary")
+          .collection("topic_images")
+          .find()
+          .toArray();
+        res.status(200).json(
+            databaseTopicImages
+        );
+      } catch (err) {
+        console.log(err);
+        let errReport = new Error("Could not get words from DB");
+        next(errReport);
+      }
 });
 
 app.get("/dictionary", async (req, res, next) => {
