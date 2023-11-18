@@ -33,7 +33,7 @@ app.get("/dictionary", async (req, res, next) => {
     console.log(databaseWords);
     res.status(200).json({
       success: true,
-      data: databaseWords.data,
+      data: databaseWords,
     });
   } catch (err) {
     console.log(err);
