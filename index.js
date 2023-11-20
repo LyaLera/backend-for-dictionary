@@ -64,31 +64,31 @@ const validWord = [
     .notEmpty()
     .withMessage("Please type your word")
     .isLength({ min: 2, max: 60 })
-    .matches(/^[A-Za-z\s]+$/)
+    .matches(/^[A-Za-zäöüÄÖÜß\s]+$/)
     .trim()
     .escape(),
-  body("partOfTheLang")
+  body("partOfSpeech")
     .notEmpty()
-    .withMessage("Please choose the part of the language")
-    .matches(/^[A-Za-z\s]+$/)
+    .withMessage("Please choose the part of the speech")
+    .matches(/^[A-Za-zäöüÄÖÜß\s]+$/)
     .trim()
     .escape(),
   body("gender")
     .notEmpty()
     .withMessage("Please choose the gender of the name")
-    .matches(/^[A-Za-z\s]+$/)
+    .matches(/^[A-Za-zäöüÄÖÜß\s]+$/)
     .trim()
     .escape(),
   body("plural")
     .notEmpty()
     .withMessage("Please type the plural form of the name")
-    .matches(/^[A-Za-z\s]+$/)
+    .matches(/^[A-Za-zäöüÄÖÜß\s]+$/)
     .trim()
     .escape(),
   body("topic")
     .notEmpty()
     .withMessage("Please choose the topic")
-    .matches(/^[A-Za-z\s]+$/)
+    .matches(/^[A-Za-zäöüÄÖÜß\s]+$/)
     .trim()
     .escape(),
   body("id").notEmpty().isUUID().trim().escape(),
