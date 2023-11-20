@@ -35,7 +35,7 @@ app.get("/dictionary/topic_images", async (req, res, next) => {
         );
       } catch (err) {
         console.log(err);
-        let errReport = new Error("Could not get words from DB");
+        let errReport = new Error("Could not get images from DB");
         next(errReport);
       }
 });
@@ -103,7 +103,7 @@ app.post("/dictionary", validWord, async (req, res, next) => {
         .collection("words")
         .insertOne({
           name: req.body.name,
-          partOfTheLang: req.body.partOfTheLang,
+          partOfSpeech: req.body.partOfSpeech,
           gender: req.body.gender,
           plural: req.body.plural,
           topic: req.body.topic,
@@ -138,7 +138,7 @@ app.put(
             {
               $set: {
                 name: req.body.name,
-                partOfTheLang: req.body.partOfTheLang,
+                partOfSpeech: req.body.partOfSpeech,
                 gender: req.body.gender,
                 plural: req.body.plural,
                 topic: req.body.topic,
